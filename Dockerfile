@@ -27,4 +27,4 @@ RUN pip install --upgrade pip
 RUN pip install pipenv
 RUN pipenv install
 
-CMD [ "flask", "run", "app.py"]
+CMD [ "pipenv", "run", "flask", "run", "app.py"]
