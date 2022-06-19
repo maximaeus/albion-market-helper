@@ -19,12 +19,15 @@ ENV FLASK_APP=${FLASK_APP}
 ENV FLASK_ENV=${FLASK_ENV}
 ENV FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
 
+EXPOSE ${FLASK_PORT}
+
 WORKDIR /usr/src/app
 RUN git init
 RUN git remote add -f origin ${repo}
+RUN git pull origin master
 
 RUN pip install --upgrade pip
 RUN pip install pipenv
 RUN pipenv install
 
-CMD [ "pipenv", "run", "flask", "run", "app.py"]
+CMD [ "pipenv", "run", "flask", "run"]
